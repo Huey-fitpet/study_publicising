@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/commons.css">
+</head>
+
+<body>
+    <div>
+        <h2 id="click_popup" class="class_first">internal first</h2>
+        <h2 id="click_innerHTML" > innerHTML first </h2>
+        <div id ="target_innerHTML"></div>
+        <table class="class_first">
+            <tr>
+                <th class="td">Month</th>
+                <th class="class_first">Savings</th>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <!-- -->
+        <h2 style="border: 1px solid red;" onclick="showAlert()" > inline second</h2>
+        <table style="border: 1px solid salmon;">
+            <tr>
+                <th class="class_second">Month</th>
+                <th class="class_second">Savings</th>
+            </tr>
+            <tr>
+                <td class="class_second">January</td>
+                <td class="class_second">$100</td>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    // 대상 컨택 #click_innerHTML
+    let click_inner_object = document.querySelector('#click_innerHTML');
+    let flag = 0
+    // watching 
+    click_inner_object.onclick = function () {
+        // 해당하는 동작
+        // #target_innerHTML
+        if (flag == 0) {
+            let target_inner_object = document.querySelector('#target_innerHTML');
+            //target_inner_object.innerHTML = "Current Position! sanghoonlee"
+            let scrollposition_value = document.documentElement.scrollTop
+            target_inner_object.innerHTML = `Current Position! sanghoonlee ${scrollposition_value}`
+            flag = 1
+        }
+        else {
+            let target_inner_object = document.querySelector('#target_innerHTML');
+            target_inner_object.innerHTML = ""
+            flag = 0
+        }
+    }
+
+
+    function showAlert() {
+        alert("임시 팝업");
+    }
+
+    let btn_test = document.querySelector("#click_popup");
+    btn_test.onclick = function () {
+        alert(" first 임시 팝업");
+    }
+</script>
+
+</html>
